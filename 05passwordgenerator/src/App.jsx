@@ -13,21 +13,22 @@
 
 
       const generatePassword = useCallback(()=>{
-        let pass = ""
+        let pass = "" // Initialize the password as an empty string
         let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
-        if (numberAllowed) str += "0123456789"
-        if (charAllowed) str += "!@#$%^&*()_+"
+        if (numberAllowed) str += "0123456789"   // Add numbers if allowed
+        if (charAllowed) str += "!@#$%^&*()_+"    // Add special characters if allowed
 
         for (let i = 1; i <length; i++) {  //length is comming from state  const [length, setLength] = useState(8)
-         const char = Math.floor(Math.random( ) * str.length + 1 )// takes a random no and selects that no(index) from the string 
-        pass +=str.charAt(char)//used to find a character at a particular position "char" is acting as a index
+         const char = Math.floor(Math.random( ) * str.length + 1 )// Random index from the string// takes a random no and selects that no(index) from the string 
+        pass +=str.charAt(char)   // Add the character at the random index to the password  //used to find a character at a particular position "char" is acting as a index
         }
-        setPassword(pass)
+        setPassword(pass) // Update the password state
 
       },[length, numberAllowed,charAllowed]) //dependency array of callback(part of syntax to show dependencies)
                                             //these dependencies dont change too frequently 
                                             //if the change frequently code will give error 
+                                            // Dependencies: Re-run this if any of these values change
  
   useEffect(()=>{ //code inside useEffect runs automatically when the page reloads also 
                  //if u pass nothing inside it ,it still runs atleast one time

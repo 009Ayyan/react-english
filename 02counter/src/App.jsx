@@ -8,6 +8,15 @@ function App() {
  // let counter = 15
 
  const addValue=()=>{
+// setCounter(counter + 1 );
+// setCounter(counter + 1 );
+// setCounter(counter + 1 );
+// setCounter(counter + 1 );
+//here otp is 16 because of batching-react sees that it takes only one method again and again with same operation
+//due to batching or grouping same function together- it works only once 
+
+
+  //here otp:19 because callback avoids batching
  setCounter((prevCounter)=>prevCounter + 1)//callback is used to access the previous value 
  setCounter((prevCounter)=>prevCounter + 1)//it takes the previous value and adds it with 1
  setCounter((prevCounter)=>prevCounter + 1)
@@ -15,7 +24,8 @@ function App() {
  }
 
  const removeValue = ()=>{
-  setCounter(counter - 1)
+  setCounter(counter - 1);
+
  }
 
 
